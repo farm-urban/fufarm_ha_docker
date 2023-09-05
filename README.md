@@ -1,2 +1,2 @@
 # home-assistant
-Farm controlled with Home Assitant
+Farm controlled with Home Assistant
