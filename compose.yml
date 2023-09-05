@@ -1,0 +1,34 @@
+version: '3'
+services:
+  homeassistant:
+    user: 999:994
+    container_name: homeassistant
+    image: "ghcr.io/home-assistant/home-assistant:stable"
+    restart: unless-stopped
+    volumes:
+      - ./config:/config
+      - /etc/localtime:/etc/localtime:ro
+      - /run/dbus:/run/dbus:ro
+    privileged: true
+    network_mode: host
+    extra_hosts:
+      - mosquitto:127.0.0.1
+    depends_on:
+      - mosquitto
+ 
+  mosquitto:
+    user: 999:994
+    container_name: mosquitto
+    image: eclipse-mosquitto
+    restart: unless-stopped
+    ports:
+      - 1883:1883
+      - 9001:9001 
+    #environment:
+    #  - TZ=Europe/Brussels
+    volumes:
+      - /opt/mosquitto/config:/mosquitto/config
+      - /opt/mosquitto/data:/mosquitto/data
+      - /opt/mosquitto/log:/mosquitto/log
+    stdin_open: true
+    tty: true

@@ -1,0 +1,51 @@
+
+# Loads default set of integrations. Do not remove.
+default_config:
+
+# Load frontend themes from the themes folder
+frontend:
+  themes: !include_dir_merge_named themes
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+#jmht
+mqtt:
+  - sensor:
+      unique_id: arduno1_tempair
+      name: "Tempair"
+      state_topic: "farm/sensor1"
+      value_template: "{{ value_json.tempair }}"
+      unit_of_measurement: 'ºC'
+  - sensor:
+      unique_id: arduno1_humidity
+      name: "Humidity"
+      state_topic: "farm/sensor1"
+      value_template: "{{ value_json.humidity }}"
+      unit_of_measurement: '%'
+  - sensor:
+      unique_id: rpi_light
+      name: "Light"
+      state_topic: "main_sump/sensor"
+      value_template: "{{ value_json.light }}"
+  - sensor:
+      unique_id: rpi_co2
+      name: "CO2"
+      state_topic: "main_sump/sensor"
+      value_template: "{{ value_json.co2 }}"
+  - sensor:
+      unique_id: rpi_tempair
+      name: "Temperature"
+      state_topic: "main_sump/sensor"
+      value_template: "{{ value_json.tempair }}"
+  - sensor:
+      unique_id: rpi_humidity
+      name: "Humiduty"
+      state_topic: "main_sump/sensor"
+      value_template: "{{ value_json.humidity }}"
+  - sensor:
+      unique_id: rpi_moisture
+      name: "Moisture"
+      state_topic: "main_sump/sensor"
+      value_template: "{{ value_json.moisture }}"
