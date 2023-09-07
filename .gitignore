@@ -3,5 +3,6 @@ config/*
 !config/configuration.yml
 
 # Mosquitto
+mosquitto/config/mqttuser
 mosquitto/data/mosquitto.db
 mosquitto/log/mosquitto.log
