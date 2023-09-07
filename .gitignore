@@ -1,0 +1,7 @@
+# All HA files apart from configure.yml
+config/*
+!config/configuration.yml
+
+# Mosquitto
+mosquitto/data/mosquitto.db
+mosquitto/log/mosquitto.log
