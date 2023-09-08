@@ -10,6 +10,16 @@ default_config:
 #script: !include scripts.yaml
 #scene: !include scenes.yaml
 
+#template:
+#  - sensor:
+#      name: Industrial Fan
+#tasmota_E0B226
+#      state_topic: "tele/sonoffpow/SENSOR"
+#      value_template: "{{value_json['ENERGY'].Power }}"
+#      qos: 1
+#      json_attributes_topic: "tele/sonoffpow/SENSOR"
+#      json_attributes_template: "{{ value_json['ENERGY'] | tojson }}"
+
 #jmht
 mqtt:
   - sensor:
@@ -17,35 +27,43 @@ mqtt:
       name: "Light"
       state_topic: "main_sump/sensor"
       value_template: "{{ value_json.light }}"
+      expire_after: 360
   - sensor:
       unique_id: rpi_co2
       name: "CO2"
       state_topic: "main_sump/sensor"
       value_template: "{{ value_json.co2 }}"
+      expire_after: 360
   - sensor:
       unique_id: rpi_tempair
       name: "Air Temperature"
       state_topic: "main_sump/sensor"
       value_template: "{{ value_json.tempair }}"
+      expire_after: 360
   - sensor:
       unique_id: rpi_humidity
       name: "Humidity"
       state_topic: "main_sump/sensor"
       value_template: "{{ value_json.humidity }}"
+      expire_after: 360
   - sensor:
+      expire_after: 360
       unique_id: rpi_moisture
       name: "Moisture"
       state_topic: "main_sump/sensor"
       value_template: "{{ value_json.moisture }}"
+      expire_after: 360
   - sensor:
       unique_id: arduno1_tempair
       name: "Sensor 1 Air Temperature"
       state_topic: "farm/sensor1"
       value_template: "{{ value_json.tempair }}"
       unit_of_measurement: 'ºC'
+      expire_after: 360
   - sensor:
       unique_id: arduno1_humidity
       name: "Sensor 1 Humidity"
       state_topic: "farm/sensor1"
       value_template: "{{ value_json.humidity }}"
       unit_of_measurement: '%'
+      expire_after: 360
