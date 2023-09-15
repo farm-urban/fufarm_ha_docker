@@ -6,7 +6,7 @@ default_config:
 #frontend:
 #  themes: !include_dir_merge_named themes
 #
-#automation: !include automations.yaml
+automation: !include automations.yaml
 #script: !include scripts.yaml
 #scene: !include scenes.yaml
 
@@ -21,30 +21,43 @@ default_config:
 #      json_attributes_template: "{{ value_json['ENERGY'] | tojson }}"
 
 #jmht
+switch:
+  - platform: group
+    unique_id: zipfarm_lights
+    name: zipfarm lights
+    entities:
+      - switch.tasmota_2 #SONOFF1
+      - switch.tasmota_3 #SONOFF3
+      - switch.sonoff4 #SONOFF4
+
 mqtt:
   - sensor:
       unique_id: rpi_light
       name: "Light"
       state_topic: "main_sump/sensor"
       value_template: "{{ value_json.light }}"
+      unit_of_measurement: 'lux'
       expire_after: 360
   - sensor:
       unique_id: rpi_co2
       name: "CO2"
       state_topic: "main_sump/sensor"
       value_template: "{{ value_json.co2 }}"
+      unit_of_measurement: 'ppm'
       expire_after: 360
   - sensor:
       unique_id: rpi_tempair
       name: "Air Temperature"
       state_topic: "main_sump/sensor"
       value_template: "{{ value_json.tempair }}"
+      unit_of_measurement: 'ºC'
       expire_after: 360
   - sensor:
       unique_id: rpi_humidity
       name: "Humidity"
       state_topic: "main_sump/sensor"
       value_template: "{{ value_json.humidity }}"
+      unit_of_measurement: '%'
       expire_after: 360
   - sensor:
       expire_after: 360
@@ -53,13 +66,29 @@ mqtt:
       state_topic: "main_sump/sensor"
       value_template: "{{ value_json.moisture }}"
       expire_after: 360
+#bluelab
   - sensor:
-      unique_id: arduno1_tempair
-      name: "Sensor 1 Air Temperature"
-      state_topic: "farm/sensor1"
-      value_template: "{{ value_json.tempair }}"
+      unique_id: bluelab1_ec
+      name: "Main Sump EC"
+      state_topic: "bluelab/main_sump"
+      value_template: "{{ value_json.ec }}"
+      unit_of_measurement: 'EC'
+      expire_after: 360
+  - sensor:
+      unique_id: bluelab1_ph
+      name: "Main Sump pH"
+      state_topic: "bluelab/main_sump"
+      value_template: "{{ value_json.ph }}"
+      unit_of_measurement: 'pH'
+      expire_after: 360
+  - sensor:
+      unique_id: bluelab1_temp
+      name: "Main Sump Water Temperature"
+      state_topic: "bluelab/main_sump"
+      value_template: "{{ value_json.temp }}"
       unit_of_measurement: 'ºC'
       expire_after: 360
+#arduino
   - sensor:
       unique_id: arduno1_humidity
       name: "Sensor 1 Humidity"
