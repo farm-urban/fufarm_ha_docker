@@ -90,9 +90,37 @@ mqtt:
       expire_after: 360
 #arduino
   - sensor:
+      unique_id: arduno1_tempair
+      name: "Sensor 1 temperature"
+      state_topic: "farm/sensor1"
+      value_template: "{{ value_json.tempair }}"
+      unit_of_measurement: 'ºC'
+      expire_after: 360
+  - sensor:
       unique_id: arduno1_humidity
       name: "Sensor 1 Humidity"
       state_topic: "farm/sensor1"
       value_template: "{{ value_json.humidity }}"
       unit_of_measurement: '%'
+      expire_after: 360
+  - sensor:
+      unique_id: arduno1_light
+      name: "Sensor 1 Light"
+      state_topic: "farm/sensor1"
+      value_template: "{{ value_json.light }}"
+      unit_of_measurement: 'lux'
+      expire_after: 360
+  - sensor:
+      unique_id: arduno1_co2
+      name: "Sensor 1 CO2"
+      state_topic: "farm/sensor1"
+      value_template: "{{ value_json.co2 }}"
+      unit_of_measurement: 'ppm'
+      expire_after: 360
+  - sensor:
+      unique_id: arduno1_tempwet
+      name: "Sensor 1 Water Temperature"
+      state_topic: "farm/sensor1"
+      value_template: "{{ value_json.tempwet }}"
+      unit_of_measurement: 'ºC'
       expire_after: 360
