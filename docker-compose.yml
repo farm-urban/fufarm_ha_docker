@@ -16,3 +16,20 @@ services:
     #  - mosquitto:127.0.0.1
     depends_on:
       - mosquitto
+
+  mosquitto:
+    #user: 999:994
+    container_name: mosquitto
+    image: eclipse-mosquitto
+    restart: unless-stopped
+    ports:
+      - 1883:1883
+    #  - 9001:9001 
+    #environment:
+    #  - TZ=Europe/Brussels
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+      - ./mosquitto/data:/mosquitto/data
+      - ./mosquitto/log:/mosquitto/log
+    stdin_open: true
+    tty: true
