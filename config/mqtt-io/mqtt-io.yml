@@ -1,0 +1,16 @@
+mqtt:
+  host: core-mosquitto
+  port: 1883
+  user: fuew_mqtt_user
+  password: "1234567890"
+  topic_prefix: jens
+  ha_discovery:
+    enabled: yes
+
+stream_modules:
+  - name: dfrobot
+    module: serial
+    device: /dev/ttyACM0
+    baud: 9600
+    read_interval: 60
+

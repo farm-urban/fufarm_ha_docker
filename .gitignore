@@ -1,6 +1,8 @@
 # All HA files apart from configure.yml
 config/*
 !config/configuration.yml
+!config/mqtt-io
+!config/custom_templates
 
 # Mosquitto
 mosquitto/config/mqttuser

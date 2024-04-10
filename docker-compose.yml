@@ -33,3 +33,21 @@ services:
       - ./mosquitto/log:/mosquitto/log
     stdin_open: true
     tty: true
+
+  # mqtt-io:
+  #   container_name: mqtt-io
+  #   image: "ghcr.io/kevinvincent/mqtt-io:latest"
+  #   restart: unless-stopped
+  #   environment:
+  #     - MQTT_BROKER=mosquitto
+  #     - MQTT_PORT=1883
+  #     - MQTT_USERNAME=homeassistant
+  #     - MQTT_PASSWORD=homeassistant
+  #     - MQTT_TOPIC_PREFIX=homeassistant
+  #     - MQTT_DISCOVERY_PREFIX=homeassistant
+  #     - MQTT_DISCOVERY_INTERVAL=60
+  #     - MQTT_DISCOVERY_RETAIN=true
+
+
+
+  # tapo
