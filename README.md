@@ -1,6 +1,5 @@
-# home-assistant
-Farm controlled with Home Assistant
-
+# FUFARM Home Assistant
+Home Assistant Hydroponics setup using Docker.
 
 ## Adding MQTT users
 sudo chown root:root mosquitto/config/mqttuser
