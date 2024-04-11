@@ -34,8 +34,8 @@ def read_loop(fd):
 def write_loop(fd):
     delay = 5
     while True:
-        x = { "tempair":  round(random.uniform(20, 30),2),
-              "humidity":  round(random.uniform(50, 60),2),
+        x = { "tempair":  str(round(random.uniform(20, 30),2)),
+              "humidity":  str(round(random.uniform(50, 60),2)),
             #   "light":  (String)light;
             #   "flow":  (String)flow;
             #   "co2":  (String)co2;

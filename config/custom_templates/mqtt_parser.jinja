@@ -1,7 +1,6 @@
 {% macro parse_stream(value, sensor) %}
-{% for word in value.split()[0].strip("{}").split(",") -%}
-    {% if word.find(sensor) > 0 %} 
-    {{ float(word.split(':')[1]) }}
-    {% endif -%}
-{%- endfor %}
+{% set parsed_json = value | from_json %}
+{% if sensor in parsed_json %}
+    {{ float(parsed_json[sensor]) }}
+{% endif %}
 {% endmacro %}
