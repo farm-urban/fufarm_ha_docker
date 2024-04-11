@@ -3,6 +3,7 @@ config/*
 !config/configuration.yml
 !config/mqtt-io
 !config/custom_templates
+!config/custom_components
 
 # Mosquitto
 mosquitto/config/mqttuser
