@@ -6,7 +6,7 @@ default_config:
 #frontend:
 #  themes: !include_dir_merge_named themes
 #
-automation: !include automations.yaml
+# automation: !include automations.yaml
 #script: !include scripts.yaml
 #scene: !include scenes.yaml
 
@@ -21,13 +21,13 @@ automation: !include automations.yaml
 #      json_attributes_template: "{{ value_json['ENERGY'] | tojson }}"
 
 #jmht
-switch:
-  - platform: group
-    unique_id: zipfarm_lights
-    name: zipfarm lights
-    entities:
-      - switch.tasmota_2 #SONOFF1
-      - switch.tasmota_3 #SONOFF3
-      - switch.sonoff4 #SONOFF4
+# switch:
+#   - platform: group
+#     unique_id: zipfarm_lights
+#     name: zipfarm lights
+#     entities:
+#       - switch.tasmota_2 #SONOFF1
+#       - switch.tasmota_3 #SONOFF3
+#       - switch.sonoff4 #SONOFF4
 
-mqtt: !include mqtt.yaml
+mqtt: !include mqtt.yml

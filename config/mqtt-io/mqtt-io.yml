@@ -1,7 +1,7 @@
 mqtt:
-  host: core-mosquitto
+  host: localhost
   port: 1883
-  user: fuew_mqtt_user
+  user: homeassistant
   password: "1234567890"
   topic_prefix: jens
   ha_discovery:
@@ -10,7 +10,9 @@ mqtt:
 stream_modules:
   - name: dfrobot
     module: serial
-    device: /dev/ttyACM0
+    # device: /dev/ttyACM0
+    device: /dev/ttys009
     baud: 9600
-    read_interval: 60
+    read_interval: 5
+
 
