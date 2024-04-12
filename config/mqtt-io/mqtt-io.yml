@@ -1,8 +1,8 @@
 mqtt:
   host: localhost
   port: 1883
-  user: homeassistant
-  password: "1234567890"
+  user: hamqtt
+  password: "UbT4Rn3oY7!S9L"
   topic_prefix: jens
   ha_discovery:
     enabled: yes
