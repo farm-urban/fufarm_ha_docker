@@ -10,8 +10,7 @@ mqtt:
 stream_modules:
   - name: dfrobot
     module: serial
-    # device: /dev/ttyACM0
-    device: /dev/ttys009
+    device: /dev/ttyACM0
     baud: 9600
     read_interval: 5
 
