@@ -1,0 +1,50 @@
+- sensor:
+    unique_id: mqtt_io_temp
+    name: "MQTT Temp"
+    state_topic: "jens/stream/dfrobot"
+    unit_of_measurement: "C"
+    expire_after: 60
+    value_template: >-
+      {% from 'mqtt_parser.jinja' import parse_stream %}
+      {{ parse_stream(value,'tempair') }}
+
+- sensor:
+    unique_id: mqtt_io_humidity
+    name: "MQTT Humidity"
+    state_topic: "jens/stream/dfrobot"
+    unit_of_measurement: "humidity"
+    expire_after: 60
+    value_template: >-
+      {% from 'mqtt_parser.jinja' import parse_stream %}
+      {{ parse_stream(value,'humidity') }}
+
+- sensor:
+    unique_id: mqtt_io_light
+    name: "MQTT Light"
+    state_topic: "jens/stream/dfrobot"
+    unit_of_measurement: "lux"
+    expire_after: 60
+    value_template: >-
+      {% from 'mqtt_parser.jinja' import parse_stream %}
+      {{ parse_stream(value,'light') }}
+
+- sensor:
+    unique_id: mqtt_io_co2
+    name: "MQTT CO2"
+    state_topic: "jens/stream/dfrobot"
+    unit_of_measurement: "ppm"
+    expire_after: 60
+    value_template: >-
+      {% from 'mqtt_parser.jinja' import parse_stream %}
+      {{ parse_stream(value,'co2') }}
+
+- sensor:
+    unique_id: mqtt_io_ec
+    name: "MQTT EC"
+    state_topic: "jens/stream/dfrobot"
+    unit_of_measurement: "ec"
+    expire_after: 60
+    value_template: >-
+      {% from 'mqtt_parser.jinja' import parse_stream %}
+      {{ parse_stream(value,'ec') }}
+
