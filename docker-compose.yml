@@ -4,14 +4,14 @@ services:
     container_name: homeassistant
     image: "ghcr.io/home-assistant/home-assistant:stable"
     restart: unless-stopped
-    ports:
-      - 8123:8123
+    #ports:
+    #  - 8123:8123
+    privileged: true
+    network_mode: host
     volumes:
       - ./config:/config
       - /etc/localtime:/etc/localtime:ro
     #  - /run/dbus:/run/dbus:ro
-    #privileged: true
-    #network_mode: host
     #extra_hosts:
     #  - mosquitto:127.0.0.1
     depends_on:
