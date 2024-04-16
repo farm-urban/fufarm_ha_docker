@@ -7,6 +7,6 @@ config/*
 !config/custom_components
 
 # Mosquitto
-mosquitto/config/mqttuser
+!mosquitto/config/mqttuser
 mosquitto/data/mosquitto.db
 mosquitto/log/mosquitto.log
