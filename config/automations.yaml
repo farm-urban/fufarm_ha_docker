@@ -1,0 +1,66 @@
+- id: '1713630315303'
+  alias: Farm Low Flow
+  description: Farm Low Flow
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - sensor.farm_flow
+    below: 0.1
+  condition: []
+  action:
+  - service: notify.farm_urban
+    data:
+      message: 'Warning! Farm Flow is running low.
+
+        Check the sump or online at: https://farm.farmurban.co.uk/
+
+        '
+  mode: single
+- id: '1713640115127'
+  alias: Edible Wall Low Flow
+  description: Edible Wall Low Flow
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - sensor.ew1_flow
+    below: 0.1
+  condition: []
+  action:
+  - service: notify.farm_urban
+    data:
+      message: 'Warning! Edible Wall Sump flow is running low.
+
+        Check the sump or online at: https://farm.farmurban.co.uk/
+
+        '
+  mode: single
+
+- id: '1713718060630'
+  alias: Zipfarm Lights On
+  description: ''
+  trigger:
+  - platform: time
+    at: 07:00:00
+  condition: []
+  action:
+  - service: switch.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id: switch.zipfarm_lights
+  mode: single
+
+- id: '1713718117980'
+  alias: Zipfarm Lights Off
+  description: ''
+  trigger:
+  - platform: time
+    at: '22:00:00'
+  condition: []
+  action:
+  - service: switch.turn_off
+    metadata: {}
+    data: {}
+    target:
+      entity_id: switch.zipfarm_lights
+  mode: single
