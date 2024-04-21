@@ -10,24 +10,21 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 #scene: !include scenes.yaml
 
-#template:
-#  - sensor:
-#      name: Industrial Fan
-#tasmota_E0B226
-#      state_topic: "tele/sonoffpow/SENSOR"
-#      value_template: "{{value_json['ENERGY'].Power }}"
-#      qos: 1
-#      json_attributes_topic: "tele/sonoffpow/SENSOR"
-#      json_attributes_template: "{{ value_json['ENERGY'] | tojson }}"
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+     - 100.95.9.30
+#     - 100.95.9.0/24
 
 #jmht
-# switch:
-#   - platform: group
-#     unique_id: zipfarm_lights
-#     name: zipfarm lights
-#     entities:
-#       - switch.tasmota_2 #SONOFF1
-#       - switch.tasmota_3 #SONOFF3
-#       - switch.sonoff4 #SONOFF4
+# From nearest to ewfarm:strip1, 2, 3 
+switch:
+  - platform: group
+    unique_id: zipfarm_lights
+    name: zipfarm lights
+    entities:
+      - switch.strip1
+      - switch.strip2
+#      - switch.strip3
 
 mqtt: !include mqtt.yml

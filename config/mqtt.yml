@@ -3,7 +3,7 @@
     name: "Farm Temp"
     state_topic: "jens/stream/dfrobot"
     unit_of_measurement: "C"
-    expire_after: 360
+    expire_after: 120
     value_template: >-
       {% from 'mqtt_parser.jinja' import parse_stream %}
       {{ parse_stream(value,'tempair') }}
@@ -13,7 +13,7 @@
     name: "Farm Humidity"
     state_topic: "jens/stream/dfrobot"
     unit_of_measurement: "humidity"
-    expire_after: 360
+    expire_after: 120
     value_template: >-
       {% from 'mqtt_parser.jinja' import parse_stream %}
       {{ parse_stream(value,'humidity') }}
@@ -23,7 +23,7 @@
     name: "Farm Light"
     state_topic: "jens/stream/dfrobot"
     unit_of_measurement: "lux"
-    expire_after: 360
+    expire_after: 120
     value_template: >-
       {% from 'mqtt_parser.jinja' import parse_stream %}
       {{ parse_stream(value,'light') }}
@@ -33,7 +33,7 @@
     name: "Farm CO2"
     state_topic: "jens/stream/dfrobot"
     unit_of_measurement: "ppm"
-    expire_after: 360
+    expire_after: 120
     value_template: >-
       {% from 'mqtt_parser.jinja' import parse_stream %}
       {{ parse_stream(value,'co2') }}
@@ -43,7 +43,7 @@
     name: "FARM FLOW"
     state_topic: "jens/stream/dfrobot"
     unit_of_measurement: "flow"
-    expire_after: 360
+    expire_after: 120
     value_template: >-
       {% from 'mqtt_parser.jinja' import parse_stream %}
       {{ parse_stream(value,'flow') }}
@@ -54,7 +54,7 @@
     name: "EW1 FLOW"
     state_topic: "farm/ew1"
     unit_of_measurement: "flow"
-    expire_after: 360
+    expire_after: 120
     value_template: >-
       {% from 'mqtt_parser.jinja' import parse_stream %}
       {{ parse_stream(value,'flow') }}
@@ -64,7 +64,7 @@
     name: "EW1 TEMPAIR"
     state_topic: "farm/ew1"
     unit_of_measurement: "C"
-    expire_after: 360
+    expire_after: 120
     value_template: >-
       {% from 'mqtt_parser.jinja' import parse_stream %}
       {{ parse_stream(value,'tempair') }}
@@ -74,8 +74,18 @@
     name: "EW1 HUMIDITY"
     state_topic: "farm/ew1"
     unit_of_measurement: "%"
-    expire_after: 360
+    expire_after: 120
     value_template: >-
       {% from 'mqtt_parser.jinja' import parse_stream %}
       {{ parse_stream(value,'humidity') }}
+
+- sensor:
+    unique_id: ew1_light
+    name: "EW1 LIGHT"
+    state_topic: "farm/ew1"
+    unit_of_measurement: "%"
+    expire_after: 120
+    value_template: >-
+      {% from 'mqtt_parser.jinja' import parse_stream %}
+      {{ parse_stream(value,'light') }}
 
