@@ -14,8 +14,16 @@ Password: <Password Added to MQTT in Step 1>
 
 
 ## To add Tasmota Devices connect to MQTT with:
-Set the DeviceName and Friendly Name to (e.g. Plug1)
+Configure -> Configure Module -> Module Type
+=> Sonoff Pow R2
+
+Configuration -> Configure Other
+=> Set the "Device Name" and "Friendly Name 1" to (e.g. FPlug1)
+
+Configuration -> Configure MQTT
 MQTT Settings:
-host: 192.168.5.1
-user: hamqtt
+Client: FPlug1
+Host: 192.168.5.1
+User: hamqtt
 password: UbT4Rn3oY7!S9L
+Topic: fplug1
