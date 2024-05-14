@@ -1,6 +1,8 @@
 # All HA files apart from configure.yml
 config/*
 !config/configuration.yml
+!config/automations.yml
+!config/scripts.yml
 !config/mqtt.yml
 !config/mqtt-io
 !config/custom_templates
