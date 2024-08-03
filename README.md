@@ -38,3 +38,5 @@ Topic: fplug1
 ## Notes on setting up a VM
 
 https://community.home-assistant.io/t/guide-home-assistant-on-apple-silicon-mac-using-ha-os-aarch64-image/444785
+
+Site can be accessed at: http://homeassistant.local:8123/
