@@ -27,4 +27,4 @@ http:
 #      - switch.strip2
 #      - switch.strip3
 
-mqtt: !include mqtt.yml
+#mqtt: !include mqtt.yml
