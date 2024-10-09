@@ -1,8 +1,9 @@
 # All HA files apart from configure.yml
 config/*
 !config/configuration.yml
-!config/automations.yml
+!config/automations.yaml
 !config/scripts.yml
+!config/influxdb.yaml
 !config/mqtt.yml
 !config/mqtt-io
 !config/custom_templates

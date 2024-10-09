@@ -1,0 +1,29 @@
+api_version: 2
+ssl: true
+host: eu-central-1-1.aws.cloud2.influxdata.com
+#port: 8086
+port: 443
+token: _xRyPe5Rgky99hiNRYKIl8sHUunFpe3m2HByTf6y_dD79hx_mgAti2aiNO0YGXRaeqit8o3g30kFgyiFYf8LAg==
+organization: 57646e12d79b1772
+bucket: ha_farm
+tags:
+  source: HA
+tags_attributes:
+  - friendly_name
+default_measurement: units
+include:
+#   domains:
+#     - sensor
+  entities:
+    - sensor.bluelab_ec_4q3f
+    - sensor.bluelab_ph_4q3f
+    - sensor.bluelab_temp_4q3f
+    - sensor.ew1_flow
+    - sensor.ew1_humidity
+    - sensor.ew1_light
+    - sensor.ew1_tempair
+    - sensor.farm_co2
+    - sensor.farm_flow
+    - sensor.farm_humidity
+    - sensor.farm_light
+    - sensor.farm_temp

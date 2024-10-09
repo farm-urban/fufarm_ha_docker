@@ -10,6 +10,9 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 #scene: !include scenes.yaml
 
+recorder:
+    commit_interval: 30
+
 http:
   use_x_forwarded_for: true
   trusted_proxies:
@@ -28,3 +31,4 @@ switch:
 #      - switch.strip3
 
 mqtt: !include mqtt.yml
+#influxdb: !include influxdb.yaml
