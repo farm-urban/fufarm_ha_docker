@@ -1,7 +1,7 @@
 - sensor:
     unique_id: farm_temp
     name: "Farm Temp"
-    state_topic: "jens/stream/dfrobot"
+    state_topic: "farm/stream/dfrobot"
     unit_of_measurement: "C"
     expire_after: 120
     value_template: >-
@@ -11,7 +11,7 @@
 - sensor:
     unique_id: farm_humidity
     name: "Farm Humidity"
-    state_topic: "jens/stream/dfrobot"
+    state_topic: "farm/stream/dfrobot"
     unit_of_measurement: "humidity"
     expire_after: 120
     value_template: >-
@@ -21,7 +21,7 @@
 - sensor:
     unique_id: farm_light
     name: "Farm Light"
-    state_topic: "jens/stream/dfrobot"
+    state_topic: "farm/stream/dfrobot"
     unit_of_measurement: "lux"
     expire_after: 120
     value_template: >-
@@ -31,7 +31,7 @@
 - sensor:
     unique_id: farm_co2
     name: "Farm CO2"
-    state_topic: "jens/stream/dfrobot"
+    state_topic: "farm/stream/dfrobot"
     unit_of_measurement: "ppm"
     expire_after: 120
     value_template: >-
@@ -41,7 +41,7 @@
 - sensor:
     unique_id: farm_flow
     name: "FARM FLOW"
-    state_topic: "jens/stream/dfrobot"
+    state_topic: "farm/stream/dfrobot"
     unit_of_measurement: "flow"
     expire_after: 120
     value_template: >-
