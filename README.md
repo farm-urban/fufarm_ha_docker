@@ -21,6 +21,9 @@ Settings -> Devices and Services -> Add Integration -> Tasmota
 
 ### Configure Tasmota Devices connect to MQTT with:
 
+NB: If device won't attach to FUsensors, attach to main wifi and then login with: ssh fu@100.116.249.80 -L 3333:192.168.55.119:80
+http://localhost:333
+
 Configure -> Configure Module -> Module Type
 => Sonoff Pow R2
 
@@ -34,6 +37,7 @@ Host: 192.168.5.1
 User: hamqtt
 password: UbT4Rn3oY7!S9L
 Topic: fplug1
+
 
 ## Notes on setting up a VM
 

@@ -34,33 +34,31 @@
 
         '
   mode: single
-
 - id: '1713718060630'
-  alias: Zipfarm Lights On
+  alias: Farm Lights On
   description: ''
-  trigger:
-  - platform: time
-    at: 00:00:00
-  condition: []
-  action:
-  - service: switch.turn_on
-    metadata: {}
+  triggers:
+  - at: '16:00:00'
+    trigger: time
+  conditions: []
+  actions:
+  - metadata: {}
     data: {}
+    action: switch.turn_on
     target:
-      entity_id: switch.zipfarm_lights
+      entity_id: switch.all_farm_lights
   mode: single
-
 - id: '1713718117980'
-  alias: Zipfarm Lights Off
+  alias: Farm Lights Off
   description: ''
-  trigger:
-  - platform: time
-    at: '16:00:00'
-  condition: []
-  action:
-  - service: switch.turn_off
-    metadata: {}
+  triggers:
+  - at: '10:00:00'
+    trigger: time
+  conditions: []
+  actions:
+  - metadata: {}
     data: {}
+    action: switch.turn_off
     target:
-      entity_id: switch.zipfarm_lights
+      entity_id: switch.all_farm_lights
   mode: single

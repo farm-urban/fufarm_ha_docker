@@ -20,14 +20,14 @@ http:
 
 #jmht
 # From nearest to ewfarm:strip1, 2, 3 
-switch:
-  - platform: group
-    unique_id: zipfarm_lights
-    name: zipfarm lights
-    entities:
-      - switch.strip1
-      - switch.strip2
-      - switch.strip3
+#switch:
+#  - platform: group
+#    unique_id: zipfarm_lights
+#    name: zipfarm lights
+#    entities:
+#      - switch.strip1
+#      - switch.strip2
+#      - switch.strip3
 
 mqtt: !include mqtt.yml
 influxdb: !include influxdb.yaml
