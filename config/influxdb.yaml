@@ -3,8 +3,8 @@ ssl: true
 host: eu-central-1-1.aws.cloud2.influxdata.com
 #port: 8086
 port: 443
-token: _xRyPe5Rgky99hiNRYKIl8sHUunFpe3m2HByTf6y_dD79hx_mgAti2aiNO0YGXRaeqit8o3g30kFgyiFYf8LAg==
-organization: 57646e12d79b1772
+token: TODO
+organization: MYORG
 bucket: ha_farm
 tags:
   source: HA
@@ -12,8 +12,8 @@ tags_attributes:
   - friendly_name
 default_measurement: units
 include:
-#   domains:
-#     - sensor
+  #   domains:
+  #     - sensor
   entities:
     - sensor.bluelab_ec_4q3f
     - sensor.bluelab_ph_4q3f
