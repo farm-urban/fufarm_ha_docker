@@ -32,11 +32,11 @@ Configuration -> Configure Other
 
 Configuration -> Configure MQTT
 MQTT Settings:
-Client: FPlug1
-Host: 192.168.5.1
+Client: Plug1
+Host: 192.168.8.100
 User: hamqtt
 password: UbT4Rn3oY7!S9L
-Topic: fplug1
+Topic: plug1
 
 ## Add Tapo Webcam Integration
 
