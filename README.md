@@ -38,6 +38,18 @@ User: hamqtt
 password: UbT4Rn3oY7!S9L
 Topic: fplug1
 
+## Add Tapo Webcam Integration
+
+1. Download [Tapo App](https://play.google.com/store/apps/details?id=com.tplink.iot&pcampaignid=web_share)
+2. Turn on cam (reset with pin if necessary) and connect to hotspot TAPO_CAM_XXXX with phone
+3. Setup cam and connect it to the farm wifi hotspot
+4. Give the camera a fixed IP in the AP or Raspberry Pi.
+5. Create a camera account in the app: **Camera Settings > Advanced Settings > Camera Account**
+6. Ensure the [Tapo HA custom component](https://github.com/JurajNyiri/HomeAssistant-Tapo-Control) is installed.
+7. In Home Assistant go to: **Settings -> Devices & Services -> +Integration** select **Tapo: Cameras Control**
+8. Add the camera with the IP address selected in 4.
+9. Add the account details from 4.
+10. Add the cloud password for the master Tapo account.
 
 ## Notes on setting up a VM
 
