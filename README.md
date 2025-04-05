@@ -45,11 +45,15 @@ Topic: plug1
 3. Setup cam and connect it to the farm wifi hotspot
 4. Give the camera a fixed IP in the AP or Raspberry Pi.
 5. Create a camera account in the app: **Camera Settings > Advanced Settings > Camera Account**
-6. Ensure the [Tapo HA custom component](https://github.com/JurajNyiri/HomeAssistant-Tapo-Control) is installed.
-7. In Home Assistant go to: **Settings -> Devices & Services -> +Integration** select **Tapo: Cameras Control**
-8. Add the camera with the IP address selected in 4.
-9. Add the account details from 4.
-10. Add the cloud password for the master Tapo account.
+6. Add integration **Generic Camera**:
+
+   - rtsp://<FIXED_IP>/stream2
+   - RTSP transport protocol: TCP
+   - Authentication: basic
+   - Username and Password for camera.
+   - Uncheck `Verify SSL certificate`
+
+> **NB: below seems to be broken currently - can't log into main Tapo account, but is not required for what we need** 7. Ensure the [Tapo HA custom component](https://github.com/JurajNyiri/HomeAssistant-Tapo-Control) is installed. 8. In Home Assistant go to: **Settings -> Devices & Services -> +Integration** select **Tapo: Cameras Control** 9. Add the camera with the IP address selected in 4. 10. Add the account details from 4. 11. Add the cloud password for the master Tapo account.
 
 ## Notes on setting up a VM
 
