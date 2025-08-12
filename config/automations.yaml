@@ -1,44 +1,8 @@
-- id: '1713630315303'
-  alias: Farm Low Flow
-  description: Farm Low Flow
-  trigger:
-  - platform: numeric_state
-    entity_id:
-    - sensor.farm_flow
-    below: 0.1
-  condition: []
-  action:
-  - service: notify.farm_urban
-    data:
-      message: 'Warning! Farm Flow is running low.
-
-        Check the sump or online at: https://farm.farmurban.co.uk/
-
-        '
-  mode: single
-- id: '1713640115127'
-  alias: Edible Wall Low Flow
-  description: Edible Wall Low Flow
-  trigger:
-  - platform: numeric_state
-    entity_id:
-    - sensor.ew1_flow
-    below: 0.1
-  condition: []
-  action:
-  - service: notify.farm_urban
-    data:
-      message: 'Warning! Edible Wall Sump flow is running low.
-
-        Check the sump or online at: https://farm.farmurban.co.uk/
-
-        '
-  mode: single
 - id: '1713718060630'
   alias: Farm Lights On
   description: ''
   triggers:
-  - at: '16:00:00'
+  - at: '18:00:00'
     trigger: time
   conditions: []
   actions:
@@ -47,6 +11,11 @@
     action: switch.turn_on
     target:
       entity_id: switch.all_farm_lights
+  - action: switch.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id: switch.strip2
   mode: single
 - id: '1713718117980'
   alias: Farm Lights Off
@@ -61,4 +30,41 @@
     action: switch.turn_off
     target:
       entity_id: switch.all_farm_lights
+  - action: switch.turn_off
+    metadata: {}
+    data: {}
+    target:
+      entity_id: switch.strip2
+  mode: single
+- id: '1744358464761'
+  alias: Sump Level Low
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - binary_sensor.sump_level_sensor
+    to: 'off'
+  conditions: []
+  actions:
+  - action: notify.farm_urban
+    metadata: {}
+    data:
+      message: Sump level is low
+      target: '#cryptfarm'
+  mode: single
+- id: '1744358858365'
+  alias: Low flow rate
+  description: ''
+  triggers:
+  - trigger: numeric_state
+    entity_id:
+    - sensor.farm_flow
+    below: 1
+  conditions: []
+  actions:
+  - action: notify.farm_urban
+    metadata: {}
+    data:
+      message: Low flow rate
+      target: '#cryptfarm'
   mode: single
