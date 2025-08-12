@@ -1,6 +1,0 @@
-{% macro parse_stream(value, sensor) %}
-{% set parsed_json = value | from_json %}
-{% if sensor in parsed_json %}
-    {{ float(parsed_json[sensor]) }}
-{% endif %}
-{% endmacro %}
