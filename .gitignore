@@ -1,4 +1,3 @@
-# All HA files apart from configure.yml
 config/*
 !config/custom_templates
 !config/custom_components
