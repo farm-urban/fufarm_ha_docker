@@ -38,6 +38,21 @@ User: hamqtt
 password: UbT4Rn3oY7!S9L
 Topic: plug1
 
+### Additional Tasmota Configuration
+
+We've encountered issues with Tasmota switches disconnecting and not being triggered correctly. The following settings are attempts to try and fix this.
+
+| Command          | Description                                                                           |
+| ---------------- | ------------------------------------------------------------------------------------- |
+| `WifiConfig 5`   | Stick to one AP only, no roaming                                                      |
+| `SetOption57 0`  | Disable WiFi network rescan every 44 minutes                                          |
+| `PowerOnState 3` | switch power(s) to their last saved state (Tasmota default but changed in LocalBytes) |
+| `Sleep 0`        | Disable Wi-Fi sleep (ESP8266)                                                         |
+
+To set with a single command:
+
+`Backlog WifiConfig 5; SetOption57 0; PowerOnState 3; Sleep 0`
+
 ## Add Tapo Webcam Integration
 
 1. Download [Tapo App](https://play.google.com/store/apps/details?id=com.tplink.iot&pcampaignid=web_share)
