@@ -74,7 +74,23 @@ To set with a single command:
 
 - Settings -> System -> Backups
 - Create automatic backups into the directory `config/backups`
-- Configure rclone to sync backups to external repository
+- Install rclone `sudo apt-get install rclone`
+- Congigure rclone to sync backups to S3 storage e.g. `~/.config/rclone/rclone.conf`:
+
+  ```[katapault]
+  type = s3
+  provider = Other
+  access_key_id = XXXX
+  secret_access_key = YYYYY
+  endpoint = uk-lon-1.katapultobjects.com:443
+  ```
+
+- Use cron to configure rclone to sync backups to external repository `contab -e`
+
+  ```# m h  dom mon dow   command
+  MAILTO="it@farmurban.co.uk"
+  0 5 * * * rclone sync --s3-no-check-bucket  /opt/home-assistant/config/backups katapault:fu-backups/farmpi
+  ```
 
 ## Notes on setting up a VM
 
