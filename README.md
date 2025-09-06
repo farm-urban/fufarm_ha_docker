@@ -70,6 +70,12 @@ To set with a single command:
 
 > **NB: below seems to be broken currently - can't log into main Tapo account, but is not required for what we need** 7. Ensure the [Tapo HA custom component](https://github.com/JurajNyiri/HomeAssistant-Tapo-Control) is installed. 8. In Home Assistant go to: **Settings -> Devices & Services -> +Integration** select **Tapo: Cameras Control** 9. Add the camera with the IP address selected in 4. 10. Add the account details from 4. 11. Add the cloud password for the master Tapo account.
 
+## Setup backups
+
+- Settings -> System -> Backups
+- Create automatic backups into the directory `config/backups`
+- Configure rclone to sync backups to external repository
+
 ## Notes on setting up a VM
 
 https://community.home-assistant.io/t/guide-home-assistant-on-apple-silicon-mac-using-ha-os-aarch64-image/444785
