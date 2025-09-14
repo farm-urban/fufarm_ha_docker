@@ -42,16 +42,22 @@ Topic: plug1
 
 We've encountered issues with Tasmota switches disconnecting and not being triggered correctly. The following settings are attempts to try and fix this.
 
-| Command          | Description                                                                           |
-| ---------------- | ------------------------------------------------------------------------------------- |
-| `WifiConfig 5`   | Stick to one AP only, no roaming                                                      |
-| `SetOption57 0`  | Disable WiFi network rescan every 44 minutes                                          |
-| `PowerOnState 3` | switch power(s) to their last saved state (Tasmota default but changed in LocalBytes) |
-| `Sleep 0`        | Disable Wi-Fi sleep (ESP8266)                                                         |
+| Command             | Description                                                                           |
+| ------------------- | ------------------------------------------------------------------------------------- |
+| `WifiConfig 5`      | Stick to one AP only, no roaming                                                      |
+| `SetOption57 0`     | Disable WiFi network rescan every 44 minutes                                          |
+| `PowerOnState 3`    | switch power(s) to their last saved state (Tasmota default but changed in LocalBytes) |
+| `MqttKeepAlive 100` | Default is 30                                                                         |
 
 To set with a single command:
 
-`Backlog WifiConfig 5; SetOption57 0; PowerOnState 3; Sleep 0`
+`Backlog WifiConfig 5; SetOption57 0; PowerOnState 3; MqttKeepAlive 100`
+
+This seems to work, but it's not clear which was the magic setting that fixed things.
+
+To enable deeper debugging: `Backlog WebLog 4; MQTTLog 2`
+
+To disable debugging: `Backlog WebLog 2; MQTTLog 0`
 
 ## Add Tapo Webcam Integration
 
