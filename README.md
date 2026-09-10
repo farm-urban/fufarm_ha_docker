@@ -2,62 +2,15 @@
 
 Home Assistant Hydroponics setup using Docker.
 
-## Add MQTT user
+## Add Edenic Integration
+Clone the [fufarm_ha_edenic[(https://github.com/farm-urban/fufarm_ha_edenic) repository.
 
-sudo chown root:root mosquitto/config/mqttuser
-./mosquitto/mosquitto_cmd.sh passwd -b /mosquitto/config/mqttuser hamqtt 'UbT4Rn3oY7!S9L'
+Link the custom_components/edenic_bluelab directory into the Home Assistant custom_components directory and edit the docker-compose.yml file.
 
-## Add MQTT Integration in HA
+Add the Integration in Home Assistant.
 
-Settings -> Devices and Services -> Add Integration -> MQTT -> MQTT:
-Broker: mosquitto
-Port: 1883
-Username: <User Added to MQTT in Step 1>
-Password: <Password Added to MQTT in Step 1>
-
-## Add Tasmota Integration
-
-Settings -> Devices and Services -> Add Integration -> Tasmota
-
-### Configure Tasmota Devices connect to MQTT with:
-
-NB: If device won't attach to FUsensors, attach to main wifi and then login with: ssh fu@100.116.249.80 -L 3333:192.168.55.119:80
-http://localhost:333
-
-Configure -> Configure Module -> Module Type
-=> Sonoff Pow R2
-
-Configuration -> Configure Other
-=> Set the "Device Name" and "Friendly Name 1" to (e.g. FPlug1)
-
-Configuration -> Configure MQTT
-MQTT Settings:
-Client: Plug1
-Host: 192.168.8.100
-User: hamqtt
-password: UbT4Rn3oY7!S9L
-Topic: plug1
-
-### Additional Tasmota Configuration
-
-We've encountered issues with Tasmota switches disconnecting and not being triggered correctly. The following settings are attempts to try and fix this.
-
-| Command             | Description                                                                           |
-| ------------------- | ------------------------------------------------------------------------------------- |
-| `WifiConfig 5`      | Stick to one AP only, no roaming                                                      |
-| `SetOption57 0`     | Disable WiFi network rescan every 44 minutes                                          |
-| `PowerOnState 3`    | switch power(s) to their last saved state (Tasmota default but changed in LocalBytes) |
-| `MqttKeepAlive 100` | Default is 30                                                                         |
-
-To set with a single command:
-
-`Backlog WifiConfig 5; SetOption57 0; PowerOnState 3; MqttKeepAlive 100`
-
-This seems to work, but it's not clear which was the magic setting that fixed things.
-
-To enable deeper debugging: `Backlog WebLog 4; MQTTLog 2`
-
-To disable debugging: `Backlog WebLog 2; MQTTLog 0`
+## Add ESPHome integration
+See the [fufar_esphome](https://github.com/farm-urban/fufarm_esphome) repository.
 
 ## Add Tapo Webcam Integration
 
@@ -97,9 +50,62 @@ To disable debugging: `Backlog WebLog 2; MQTTLog 0`
   MAILTO="it@farmurban.co.uk"
   0 5 * * * rclone sync --s3-no-check-bucket  /opt/home-assistant/config/backups katapault:fu-backups/farmpi
   ```
+---
+# IGNORE - Below this line are the old setup notes
 
-## Notes on setting up a VM
+## Add MQTT user
 
-https://community.home-assistant.io/t/guide-home-assistant-on-apple-silicon-mac-using-ha-os-aarch64-image/444785
+sudo chown root:root mosquitto/config/mqttuser
+./mosquitto/mosquitto_cmd.sh passwd -b /mosquitto/config/mqttuser hamqtt 'UbT4Rn3oY7!S9L'
 
-Site can be accessed at: http://homeassistant.local:8123/
+## Add MQTT Integration in HA
+
+Settings -> Devices and Services -> Add Integration -> MQTT -> MQTT:
+Broker: mosquitto
+Port: 1883
+Username: <User Added to MQTT in Step 1>
+Password: <Password Added to MQTT in Step 1>
+
+## Add Tasmota Integration
+
+Settings -> Devices and Services -> Add Integration -> Tasmota
+
+### Configure Tasmota Devices connect to MQTT with:
+
+NB: If device won't attach to FUsensors, attach to main wifi and then login with: ssh fu@100.116.249.80 -L 3333:192.168.55.119:80
+http://localhost:333
+
+Configure -> Configure Module -> Module Type
+=> Sonoff Pow R2
+
+Configuration -> Configure Other
+=> Set the "Device Name" and "Friendly Name 1" to (e.g. FPlug1)
+
+Configuration -> Configure MQTT
+MQTT Settings:
+Client: Plug1
+Host: 192.168.8.100
+User: hamqtt
+password: UbT4Rn3oY7!S9L
+Topic: plug1
+
+## Additional Tasmota Configuration
+
+We've encountered issues with Tasmota switches disconnecting and not being triggered correctly. The following settings are attempts to try and fix this.
+
+| Command             | Description                                                                           |
+| ------------------- | ------------------------------------------------------------------------------------- |
+| `WifiConfig 5`      | Stick to one AP only, no roaming                                                      |
+| `SetOption57 0`     | Disable WiFi network rescan every 44 minutes                                          |
+| `PowerOnState 3`    | switch power(s) to their last saved state (Tasmota default but changed in LocalBytes) |
+| `MqttKeepAlive 100` | Default is 30                                                                         |
+
+To set with a single command:
+
+`Backlog WifiConfig 5; SetOption57 0; PowerOnState 3; MqttKeepAlive 100`
+
+This seems to work, but it's not clear which was the magic setting that fixed things.
+
+To enable deeper debugging: `Backlog WebLog 4; MQTTLog 2`
+
+To disable debugging: `Backlog WebLog 2; MQTTLog 0`
