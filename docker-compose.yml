@@ -1,43 +1,28 @@
 services:
   homeassistant:
     container_name: homeassistant
-    image: "ghcr.io/home-assistant/home-assistant:2025.9"
-    # For raspi4
-    #platform: linux/arm64/v8
+    image: "ghcr.io/home-assistant/home-assistant:2026.9"
+    #image: "ghcr.io/home-assistant/home-assistant:2025.9"
     restart: unless-stopped
-    #ports:
-    #  - 8123:8123
-    #privileged: true
     network_mode: host
-    extra_hosts:
-      - mosquitto:127.0.0.1
-    #dns:
-    #  - 8.8.8.8
-    #  - 4.4.4.4
+#    extra_hosts:
+#      - mosquitto:127.0.0.1
     volumes:
       - ./config:/config
+      - /opt/fufarm_ha_edenic/custom_components/edenic_bluelab:/config/custom_components/edenic_bluelab
       - /etc/localtime:/etc/localtime:ro
-    #  - /run/dbus:/run/dbus:ro
-    depends_on:
-      - mosquitto
+#    depends_on:
+#      - mosquitto
 
-  mosquitto:
-    #user: 999:994
-    container_name: mosquitto
-    image: eclipse-mosquitto:2.0.22
-    # For raspi4
-    #platform: linux/arm64/v8
-    restart: unless-stopped
-    network_mode: host
-    #ports:
-    #  - 1883:1883
-    #  - 9001:9001 
-    #environment:
-    #  - TZ=Europe/Brussels
-    volumes:
-      - ./mosquitto/config:/mosquitto/config
-      - ./mosquitto/data:/mosquitto/data
-      - ./mosquitto/log:/mosquitto/log
-    stdin_open: true
-    tty: true
+#  mosquitto:
+#    container_name: mosquitto
+#    image: eclipse-mosquitto:2.0.22
+#    restart: unless-stopped
+#    network_mode: host
+#    volumes:
+#      - ./mosquitto/config:/mosquitto/config
+#      - ./mosquitto/data:/mosquitto/data
+#      - ./mosquitto/log:/mosquitto/log
+#    stdin_open: true
+#    tty: true
 
